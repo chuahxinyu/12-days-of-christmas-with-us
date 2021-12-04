@@ -42,6 +42,43 @@ def add_movie():
         print(movie[0])
 
     return render_template("movie_update.html", movies=movies)
+
+@bp.route('/song', methods=["GET", "POST"])
+def add_song():
+    db = get_db()
+    if request.method == "POST":
+        song = {}
+        song["title"] = request.form.get("song-title")
+        song["artist"] = request.form.get("song-art")
+        song["img"] = request.form.get("song-img")
+        song["link"] = request.form.get("song-mp3")
+
+        error = None
+
+        if not (song["title"] and song["artist"] and song["img"] and song["link"]):
+            error = "Something is missing"
+
+        if error is None:
+            print(song)
+            try:
+                db.execute(
+                    "INSERT INTO songs (title, artist, img, link) VALUES (?, ?, ?, ?)",
+                    (song["title"], song["artist"], song["img"], song["link"])
+                )
+                db.commit()
+            except db.IntegrityError:
+                error = f"{song['title']} is already used "
+            else:
+                return redirect(url_for("internal.add_song"))
+
+
+        flash(error)
+
+    songs = db.execute("SELECT * FROM songs").fetchall()
+    for song in songs:
+        print(song[0])
+
+    return render_template("songs_update.html", songs=songs)
             
     
     
