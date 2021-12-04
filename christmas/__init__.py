@@ -29,6 +29,11 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
 
+    @app.route('/day')
+    def index():
+        return render_template('day.html')
+    
+
     from . import db
     db.init_app(app)
 
