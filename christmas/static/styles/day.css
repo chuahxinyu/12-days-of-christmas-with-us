@@ -34,6 +34,10 @@ nav ul li {
     color: #f5f2e9;
 }
 
+.header-home:hover {
+    cursor: pointer;
+}
+
 /* ------------------------ SIGN UP and LOGIN buttons ----------------------- */
 nav ul li a {
     text-transform: uppercase;
