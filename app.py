@@ -6,12 +6,13 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
-    print(request.method)
+    if request.method == "GET":
+        return render_template("login.html")
+    return redirect("/")
 
-@app.route("/signup", methods=["GET"])
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "GET":
         return render_template("signup.html")

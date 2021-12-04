@@ -14,14 +14,17 @@
 {% block title %} Sign Up {% endblock %} 
 
 {% block body %}
+<nav>
+  <a href="/"><img src="{{ url_for('static', filename='santa/Home.png') }}" /></a>
+</nav>
 <div id="login-img">
   <img
-    src="{{ url_for('static', filename='santa standing on sled.png') }}"
+    src="{{ url_for('static', filename='santa/santa standing on sled.png') }}"
     alt="Flying Santa Claus"
   />
 </div>
 <main>
-  <form action="#" method="get">
+  <form action="/signup" method="post">
     <div class="form-control-inline">
       <label for="user-email">Your email</label>
       <input

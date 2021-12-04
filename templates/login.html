@@ -12,14 +12,17 @@
 {% endblock %}
 
 {% block title %} Login {% endblock %} {% block body %}
+<nav>
+  <a href="/"><img src="{{ url_for('static', filename='santa/Home.png') }}" /></a>
+</nav>
 <div id="login-img">
   <img
-    src="{{ url_for('static', filename='santa_flying_angle.png') }}"
+    src="{{ url_for('static', filename='santa/santa_flying_angle.png') }}"
     alt="Flying Santa Claus"
   />
 </div>
 <main>
-  <form action="#" method="get">
+  <form action="/login" method="post">
     <div class="form-control-inline">
       <label for="user-email">Your email</label>
       <input
