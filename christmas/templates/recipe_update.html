@@ -19,11 +19,11 @@
       <label for="recipe-link">External link</label>
       <input type="text" name="recipe-link" id="recipe-link" required />
       <label for="recipe-img">Image path (in repo)</label>
-      <input type="text" name="recipe-img" id="recipe-img" value="/static/recipes" required />
+      <input type="text" name="recipe-img" id="recipe-img" value="/static/recipes/" required />
       <button type="submit">Submit</button>
     </form>
 
-  {% for recipe in recipe %}
+  {% for recipe in recipes %}
     <hr>
     <p>{{ recipe[0] }}: {{ recipe[1] }}</p>
     <p>Description: {{ recipe[2] }}</p>

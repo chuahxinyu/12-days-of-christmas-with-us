@@ -6,6 +6,7 @@ from christmas.db import get_db
 
 bp = Blueprint('internal', __name__)
 
+
 @bp.route('/movie', methods=["GET", "POST"])
 def add_movie():
     db = get_db()
@@ -26,14 +27,14 @@ def add_movie():
             try:
                 db.execute(
                     "INSERT INTO movies (title, description, img, external_link) VALUES (?, ?, ?, ?)",
-                    (movie["title"], movie["description"], movie["img"], movie["link"])
+                    (movie["title"], movie["description"],
+                     movie["img"], movie["link"])
                 )
                 db.commit()
             except db.IntegrityError:
                 error = f"{movie['title']} is already used "
             else:
                 return redirect(url_for("internal.add_movie"))
-
 
         flash(error)
 
@@ -42,6 +43,7 @@ def add_movie():
         print(movie[0])
 
     return render_template("movie_update.html", movies=movies)
+
 
 @bp.route('/song', methods=["GET", "POST"])
 def add_song():
@@ -71,7 +73,6 @@ def add_song():
             else:
                 return redirect(url_for("internal.add_song"))
 
-
         flash(error)
 
     songs = db.execute("SELECT * FROM songs").fetchall()
@@ -79,6 +80,41 @@ def add_song():
         print(song[0])
 
     return render_template("songs_update.html", songs=songs)
-            
 
-    
+
+@bp.route('/recipe', methods=["GET", "POST"])
+def add_recipe():
+    db = get_db()
+    if request.method == "POST":
+        recipe = {}
+        recipe["title"] = request.form.get("recipe-title")
+        recipe["description"] = request.form.get("recipe-desc")
+        recipe["link"] = request.form.get("recipe-link")
+        recipe["img"] = request.form.get("recipe-img")
+
+        error = None
+
+        if not (recipe["title"] and recipe["description"] and recipe["img"] and recipe["link"]):
+            error = "Something is missing"
+
+        if error is None:
+            print(recipe)
+            try:
+                db.execute(
+                    "INSERT INTO recipes (name, description, img, external_link) VALUES (?, ?, ?, ?)",
+                    (recipe["title"], recipe["description"],
+                     recipe["img"], recipe["link"])
+                )
+                db.commit()
+            except db.IntegrityError:
+                error = f"{recipe['title']} is already used "
+            else:
+                return redirect(url_for("internal.add_recipe"))
+
+        flash(error)
+
+    recipes = db.execute("SELECT * FROM recipes").fetchall()
+    for recipe in recipes:
+        print(recipe[0])
+
+    return render_template("recipe_update.html", recipes=recipes)
