@@ -30,7 +30,7 @@ def create_app(test_config=None):
         return render_template('index.html')
 
     @app.route('/day')
-    def index():
+    def day():
         return render_template('day.html')
     
 
