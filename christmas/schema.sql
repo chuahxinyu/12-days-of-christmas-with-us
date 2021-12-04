@@ -42,6 +42,7 @@ CREATE TABLE user_days (
     movie_id INTEGER,
     song_id INTEGER,
     recipe_id INTEGER,
+    img TEXT,
     PRIMARY KEY (user_id, day_num),
     FOREIGN KEY (user_id) REFERENCES user(id),
     FOREIGN KEY (movie_id) REFERENCES movies(id),
