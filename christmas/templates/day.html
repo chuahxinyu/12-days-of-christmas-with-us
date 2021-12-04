@@ -31,10 +31,10 @@
 
                 <ul>
                     {% if not logged_in %}
-                    <li><a class="sign_up" href="/signup">SIGN UP</a></li>
-                    <li><a class="log_in" href="/login">LOG IN</a></li>
+                    <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
+                    <li><a class="log_in" href="/auth/login">LOG IN</a></li>
                     {% else %}
-                    <li><a class="log_in" href="">LOG OUT</a></li>
+                    <li><a class="log_in" href="/auth/logout">LOG OUT</a></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -43,17 +43,17 @@
             <div class="day-header">
                 <div class="day-header-img-container">
                     <img
-                        src={{ day_image }}
+                        src={{ day_info["img"] }}
                         alt="Christmas Themed Day Image"
                         class="day-header-img"
                     />
                 </div>
                 <div class="day-text">
-                    <h1>DAY {{ day_num }}</h1>
+                    <h1>DAY {{ day_info["day_num"] }}</h1>
                 </div>
                 <div class="day-header-img-container">
                     <img
-                        src={{ day_image }}
+                        src={{ day_info["img"] }}
                         alt="Christmas Themed Day Image"
                         class="day-header-img"
                     />
@@ -63,44 +63,44 @@
 
             <a
                 class="card movie"
-                href={{ movie_link }}
+                href={{ movie_info["external_link"] }}
                 target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
-                        src={{ movie_img }}
-                        alt={{ movie_name }} + "poster"
+                        src={{ movie_info["img"] }}
+                        alt={{ movie_info["title"] }} + " poster"
                         class="card-img movie"
                     />
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ movie_name }}</h2>
+                    <h2>{{ movie_info["title"] }}</h2>
                     <p>
-                        {{ movie_descrip }}
+                        {{ movie_info["description"] }}
                     </p>
                 </div>
             </a>
 
             <a
                 class="card recipe"
-                href={{ recipe_link }}
+                href={{ recipe_info["external_link"] }}
                 target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
-                        src={{ recipe_img }}
+                        src={{ recipe_info["img"] }}
                         alt="Santa Claus: The Movie poster"
                         class="card-img recipe"
                     />
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ recipe_name }}</h2>
+                    <h2>{{ recipe_info["name"] }}</h2>
                     <p>
-                        {{ recipe_descrip }}
+                        {{ recipe_info["description"] }}
                     </p>
                 </div>
             </a>
@@ -110,16 +110,16 @@
                     <div class="song-img-container">
                         <div class="song-white-dot"></div>
                         <img
-                            src={{ song_img }}
+                            src={{ song_info["img"] }}
                             alt="album art"
                             class="song-img"
                         />
                     </div>
-                    <h2>{{ song_name }}</h2>
-                    <h4>{{ song_artists }}</h4>
+                    <h2>{{ song_info["title"] }}</h2>
+                    <h4>{{ song_info["artist"] }}</h4>
                     <div class="controls-container">
                         <audio controls>
-                            <source src={{ song_mp3 }} type="audio/mpeg">
+                            <source src={{ song_info["link"] }} type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                     </div>
