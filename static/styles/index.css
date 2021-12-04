@@ -1,17 +1,20 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #f5f2e9;
 }
+
 body {
   width: 100vw;
   margin: 0;
   padding: 0;
 }
+
 .header {
   min-height: 0px;
   width: 100%;
 }
+
+/* NAVBAR */
 nav {
   display: flex;
   padding: 1rem 0;
@@ -23,37 +26,31 @@ nav {
   align-items: center;
   border-bottom: 4px solid #cf475a;
 }
-nav ul {
-  /* float: right; */
-  /* margin-right: 20px; */
-  list-style: none;
-}
-nav ul li {
-  /* list-style: none; */
-  display: inline-block;
-  /* margin: 0 5px; */
-  /* position: relative; */
-}
+  nav ul {
+    list-style: none;
+  }
+  nav ul li {
+    display: inline-block;
+  }
 
-/* SIGN UP and LOGIN buttons */
-nav ul li a {
-  /* color: #000000; */
-  text-transform: uppercase;
-  padding: 0.4rem;
-  border: 3px solid #cf475a;
-  text-decoration: none;
-}
-.sign_up {
-  font-family: IBM Plex Sans;
-  font-size: 1rem;
-  color: #cf475a;
-}
-.log_in {
-  background: #cf475a;
-  font-family: IBM Plex Sans;
-  font-size: 1rem;
-  color: #f5f2e9;
-}
+  /* SIGN UP and LOGIN buttons */
+  nav ul li a {
+    text-transform: uppercase;
+    padding: 0.4rem;
+    border: 3px solid #cf475a;
+    text-decoration: none;
+  }
+  .sign_up {
+    font-family: IBM Plex Sans;
+    font-size: 1rem;
+    color: #cf475a;
+  }
+  .log_in {
+    background: #cf475a;
+    font-family: IBM Plex Sans;
+    font-size: 1rem;
+    color: #f5f2e9;
+  }
 
 /* 12 DAYS OF CHRISTMAS */
 .text_box {
@@ -62,7 +59,6 @@ nav ul li a {
 
   font-family: Ubuntu;
   font-style: normal;
-  /* font-weight: bold; */
   font-size: 50px;
   line-height: 165px;
   display: block;
@@ -93,10 +89,6 @@ nav ul li a {
   text-align: center;
   display: inline-block;
 }
-/* .grid-container a {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-} */
 
 .grid-item.yellow {
   background-color: #e3c45a;
