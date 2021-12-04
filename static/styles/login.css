@@ -1,16 +1,25 @@
 body {
   display: flex;
   width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 #login-img {
   width: 50%;
+  background-color: #4CA77E;
+  height: 100%;
+  text-align: center;
 }
 
 img {
-  width: 50%;
+  width: 70%;
+  margin-top: 10rem;
+}
+
+main {
+  text-align: center;
 }
 
 label {
