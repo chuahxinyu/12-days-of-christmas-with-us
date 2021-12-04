@@ -1,209 +1,217 @@
 :root,
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
-  position: absolute;
-  margin: 0 auto;
-  top: 0;
-  right: 0;
-  left: 0;
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
-/* NAVBAR */
+/* --------------------------------- NAVBAR --------------------------------- */
 nav {
-  display: flex;
-  height: 7vh;
-  width: 80%;
-  margin: 0 10%;
+    display: flex;
+    height: 7vh;
+    width: 80%;
+    margin: 0 10%;
 
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid #f5f2e9;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #f5f2e9;
 }
 nav ul {
-  list-style: none;
+    list-style: none;
 }
 nav ul li {
-  display: inline-block;
+    display: inline-block;
 }
 
-  .fa-home {
+.fa-home {
     color: #f5f2e9;
-  }
-
-/* SIGN UP and LOGIN buttons */
-nav ul li a {
-  text-transform: uppercase;
-  padding: 0.6rem 1rem;
-  border: 3px solid #f5f2e9;
-  text-decoration: none;
 }
 
-  .sign_up {
+/* ------------------------ SIGN UP and LOGIN buttons ----------------------- */
+nav ul li a {
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    border: 3px solid #f5f2e9;
+    text-decoration: none;
+}
+
+.sign_up {
     font-family: IBM Plex Sans;
     font-size: 1rem;
     color: #f5f2e9;
-  }
+}
 
-  .log_in {
+.log_in {
     background: #f5f2e9;
     font-family: IBM Plex Sans;
     font-size: 1rem;
     color: #cf475a;
     margin-left: 0.5rem;
-  }
+}
 
-  .sign_up:hover, .log_in:hover {
+.sign_up:hover,
+.log_in:hover {
     cursor: pointer;
-  }
+}
 
 body {
-  display: flex;
-  background: linear-gradient(180deg, #cb3236 0%, #8f292b 79.69%) fixed;
-  font-family: "IBM Plex Sans", sans-serif;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    background: linear-gradient(180deg, #cb3236 0%, #8f292b 79.69%) fixed;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: auto;
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
 }
 
 h1 {
-  font-size: 5rem;
-  padding: 0;
-  margin: 0;
-  text-align: center;
+    font-size: 5rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
+/* --------------------------------- HEADER --------------------------------- */
 .day-header {
-  color: #f5f2e9;
-  grid-area: header;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    color: #f5f2e9;
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .day-header-img-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  .day-header-img {
+.day-header-img {
     height: 5rem;
     width: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 0.5rem;
-  }
-
-.day-text {
-  padding: 0 2rem;
 }
 
+.day-text {
+    padding: 0 2rem;
+}
+
+/* ---------------------------------- CARDS --------------------------------- */
 .grid-container {
-  margin: 0 10%;
-  margin-top: calc(7vh + 1rem);
-  width: 80%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 1rem;
-  grid-template-areas:
-    "header header header"
-    "movie recipe notes"
-    "movie song notes";
+    margin: 0 10%;
+    margin-top: calc(7vh + 1rem);
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    grid-template-areas:
+        "header header header"
+        "movie recipe notes"
+        "movie song notes";
 }
 
 .card {
-  background: #f5f2e9;
-  border-radius: 0.5rem;
-  transition: transform 0.1s ease-out 0s;
-  padding: 1rem;
+    background: #f5f2e9;
+    border-radius: 0.5rem;
+    transition: transform 0.1s ease-out 0s;
+    padding: 1rem;
+}
+
+.card:hover {
+  box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.25);
+  transform: translate(-0.1rem, -0.1rem);
+  cursor: pointer;
 }
 
 .card-content-container {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .card-img-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  .card-img.movie {
+.card-img.movie {
     height: 50vh;
     width: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 0.5rem;
-  }
+}
 
-  .card-img.recipe {
+.card-img.recipe {
     height: 25vh;
     width: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 0.5rem;
-  }
+}
 
-  .card.movie {
+.card.movie {
     grid-area: movie;
-  }
+}
 
-  .card.recipe {
+.card.recipe {
     grid-area: recipe;
-  }
+}
 
-  .card.song {
+.card.song {
     grid-area: song;
-  }
-    .card.song:hover {
-      box-shadow: none;
-      transform: none;
-      cursor: auto;
-    }
+}
+.card.song:hover {
+    box-shadow: none;
+    transform: none;
+    cursor: auto;
+}
 
-    .song-img-container {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.song-img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    /* f5f2e9 */
-    .song-white-dot {
-      position: absolute;
-      z-index: 10;
-      top: 50%;
-      right: 50%;
-      background-color: #f5f2e9;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-    }
+.song-white-dot {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: 50%;
+    background-color: #f5f2e9;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
 
-    .song-img {
-      height: 10vh;
-      width: 10vh;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      
-    }
+.song-img {
+    height: 10vh;
+    width: 10vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
 
-  .notes {
+
+.notes {
     grid-area: notes;
-  }
+}
 
-  textarea {
+textarea {
     margin: 1rem 0;
     width: 100%;
     height: 50vh;
@@ -214,39 +222,33 @@ h1 {
     background-color: #f8f8f8;
     font-size: 0.9rem;
     resize: none;
-  }
+}
 
-  .card:hover {
-    box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.25);
-    transform: translate(-0.1rem, -0.1rem);
-    cursor: pointer;
-  }
-
-  .card.notes:hover {
+.card.notes:hover {
     box-shadow: none;
     transform: none;
     cursor: text;
-  }
+}
 
-  .notes-container {
+.notes-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .save-btn {
+.save-btn {
     padding: 0.5rem;
     font-size: 1rem;
     font: inherit;
     display: block;
-  }
+}
 
-  .save-btn {
+.save-btn {
     border: none;
     background-color: #c4c4c4;
-  }
+}
 
-  .save-btn:hover {
+.save-btn:hover {
     cursor: pointer;
-  }
+}

@@ -33,8 +33,6 @@ def create_app(test_config=None):
     # def day():
     #     return render_template('day.html')
     
-
-
     from . import db
     db.init_app(app)
 
