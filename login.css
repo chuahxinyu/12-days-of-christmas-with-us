@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+#login-img {
+  width: 50%;
+}
+
+img {
+  width: 50%;
+}
+
+label {
+    display: block;
+}
+
+.form-control-inline input {
+  width: auto;
+  margin-right: 0.5rem;
+}

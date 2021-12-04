@@ -4,7 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
   </head>
-  <body></body>
+  <body>
+    <div id="login-img">
+      <img src="src/santa_flying.png" alt="Flying Santa Claus" />
+    </div>
+    <main>
+      <form action="/" method="get">
+        <div class="form-control-inline">
+          <label for="user-email">Your email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            autofocus
+            id="user-email"
+            name="email"
+          />
+        </div>
+        <div class="form-control-inline">
+          <label for="user-password">Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            id="user-password"
+            name="password"
+          />
+        </div>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
 </html>
