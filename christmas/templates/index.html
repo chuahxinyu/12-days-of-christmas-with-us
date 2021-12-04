@@ -1,0 +1,48 @@
+{% extends "layout.html" %} 
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/static/styles/index.css" />
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+{% endblock %}
+
+{% block title %} 12-Days-of-Christmas-with-us {% endblock %} 
+
+{% block body %}
+  <body>
+    <section class="header">
+      <nav>
+        <!-- TODO Daniel -->
+        <a href="/">
+          <img src="{{ url_for('static', filename='santa/Home.png') }}" />
+        </a>
+
+        <ul>
+          <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
+          <li><a class="log_in" href="/auth/login">LOG IN</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <div class="text_box">
+      <h1>12 DAYS OF CHRISTMAS</h1>
+    </div>
+
+    <div class="grid-container">
+      <a class="grid-item green" href="/day">day 1</a>
+      <a class="grid-item red" href="#">day 2</a>
+      <a class="grid-item yellow" href="#">day 3</a>
+      <a class="grid-item green" href="#">day 4</a>
+      <a class="grid-item red" href="#">day 5</a>
+      <a class="grid-item yellow" href="#">day 6</a>
+      <a class="grid-item yellow" href="#">day 7</a>
+      <a class="grid-item green" href="#">day 8</a>
+      <a class="grid-item red" href="#">day 9</a>
+      <a class="grid-item yellow" href="#">day 10</a>
+      <a class="grid-item green" href="#">day 11</a>
+      <a class="grid-item red" href="#">day 12</a>
+    </div>
+  </body>
+</html>
+{% endblock %}

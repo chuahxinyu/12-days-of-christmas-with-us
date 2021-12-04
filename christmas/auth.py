@@ -38,7 +38,7 @@ def signup():
         
         flash(error)
 
-    return render_template('auth/register.html')
+    return render_template('signup.html')
 
 
 @bp.route('/login', methods=["GET", "POST"])
@@ -47,9 +47,9 @@ def login():
         email = request.form.get("email")
         password = request.form.get("password")
         db = get_db()
-        error = None()
+        error = None
         user = db.execute(
-            'SELECT * FROM user WHERE email = ?', email
+            'SELECT * FROM user WHERE email = ?', (email, )
         ).fetchone()
 
         if user is None:
@@ -64,7 +64,7 @@ def login():
 
         flash(error)
     
-    return render_template('auth/login.html')
+    return render_template('login.html')
 
 
 @bp.before_app_request
