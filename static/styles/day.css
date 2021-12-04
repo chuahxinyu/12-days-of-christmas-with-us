@@ -1,22 +1,85 @@
 body {
     display: flex;
-    background: linear-gradient(180deg, #CB3236 0%, #8F292B 79.69%);
-    width: 100vw;
-    height: 100vh;
+    background: linear-gradient(180deg, #CB3236 0%, #8F292B 79.69%) fixed;
     margin: 0;
     padding: 0;
 }
 
-.h1 {
+a {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+.day-header {
     color: #F5F2E9;
+    grid-area: header;
+    text-align: center;
+}
+
+.grid-container {
+    margin: 0 10%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    grid-template-areas: 
+        "header header header"
+        "movie recipe notes"
+        "movie song notes"
 }
 
 .card {
     background: #FFFFFF;
-    box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 24px;
+    border-radius: 0.5rem;
+    transition: transform .1s ease-out 0s;
+    
 }
 
-.card-container {
-    padding: 2px 16px;
-}
+    .card-content-container {
+        padding: 0 10%;
+    }
+
+    .card-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .card-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0.5rem;
+    }
+
+    .movie {
+        grid-area: movie;
+    }
+
+    .recipe {
+        grid-area: recipe;
+    }
+
+    .song {
+        grid-area: song;
+    }
+
+    .notes {
+        grid-area: notes;
+    }
+
+    .card:hover {
+        box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.25);
+        transform: translate(-0.1rem, -0.1rem);
+        cursor: pointer;
+    }
+
+    .card.notes:hover {
+        box-shadow: none;
+        transform: none;
+        cursor: text;
+    }
