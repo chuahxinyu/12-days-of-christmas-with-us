@@ -7,7 +7,7 @@
 
 {% block body %}
   <h1>Adding movie items to database</h1>
-    <form action="/api/movie" method="post">
+    <form action="/movie" method="post">
       <h2>Movies</h2>
       {% for message in get_flashed_messages() %}
         <div class="flash">*{{ message }}</div>
@@ -19,7 +19,7 @@
       <label for="movie-link">External link</label>
       <input type="text" name="movie-link" id="movie-link" required />
       <label for="movie-img">Image path (in repo)</label>
-      <input type="text" name="movie-img" id="movie-img" required />
+      <input type="text" name="movie-img" id="movie-img" value="/static/movies" required />
       <button type="submit">Submit</button>
     </form>
 
