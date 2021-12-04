@@ -4,7 +4,7 @@ from flask import (
 
 from christmas.db import get_db
 
-bp = Blueprint('internal', __name__, url_prefix='/api')
+bp = Blueprint('internal', __name__)
 
 @bp.route('/movie', methods=["GET", "POST"])
 def add_movie():
@@ -37,8 +37,9 @@ def add_movie():
 
         flash(error)
 
-    movies = db.execute("SELECT * FROM movies").fetchone()
-    print(movies)
+    movies = db.execute("SELECT * FROM movies").fetchall()
+    for movie in movies:
+        print(movie[0])
 
     return render_template("movie_update.html", movies=movies)
             

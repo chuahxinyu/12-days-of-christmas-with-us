@@ -24,6 +24,10 @@
     </form>
 
   {% for movie in movies %}
-    <p>{{ movie }}</p>
+    <hr>
+    <p>{{ movie[0] }}: {{ movie[1] }}</p>
+    <p>Description: {{ movie[2] }}</p>
+    <p>Path: {{ movie[3] }}</p>
+    <p>URL: {{ movie[4] }}</p>
   {% endfor %}
 {% endblock %}
