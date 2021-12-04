@@ -36,6 +36,8 @@ def day(day_num):
         "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
     ).fetchone()
 
+    print(day_info["img"])
+
     if day_info is None:
         day_info = {
             "day_num": 1,

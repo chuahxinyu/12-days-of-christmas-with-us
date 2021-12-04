@@ -13,17 +13,17 @@ TOTAL_DAYS = 12
 
 index_files = [
     "candle.png",
-    "christmas tree_angle.png",
+    "christmas_tree_angle.png",
     "snowman.png",
-    "snata with black glasses_angle.png",
-    "ginger breadman.png",
+    "snata_with_black_glasses_angle.png",
+    "ginger_breadman.png",
     "wreath_angle.png",
-    "santa with snowball.png",
-    "christmas ball.png",
+    "santa_with_snowball.png",
+    "christmas_ball.png",
     "firework_angle.png",
-    "santa with deers.png",
+    "santa_with_deers.png",
     "snowflake.png",
-    "santa stuck in pipe.png",
+    "santa_stuck_in_pipe.png",
 ]
 
 @bp.route('/signup', methods=['GET', 'POST'])
