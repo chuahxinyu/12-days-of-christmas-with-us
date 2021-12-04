@@ -9,6 +9,8 @@ from christmas.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+TOTAL_DAYS = 12
+
 @bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
@@ -27,13 +29,22 @@ def signup():
         if error is None:
             try:
                 db.execute(
-                    "INSERT INTO user (email, password) VALUES (?, ?)",
-                    (email, generate_password_hash(password))
+                    "INSERT INTO user (email, password, notes) VALUES (?, ?, ?)",
+                    (email, generate_password_hash(password), "Enter notes here ...")
                 )
                 db.commit()
             except db.IntegrityError:
                 error = f"{email} is already used"
             else:
+                user_id = db.execute(
+                    "SELECT id FROM user ORDER BY id DESC LIMIT 1"
+                ).fetchone()
+                print(user_id)
+                for day_num in range(1, TOTAL_DAYS+1):
+                    db.execute(
+                        "INSERT INTO user_days VALUES (?, ?, ?, ?, ?)",
+                        (user_id, day_num, 2+day_num, 5+day_num, day_num)
+                    )
                 return redirect(url_for("auth.login"))
         
         flash(error)
