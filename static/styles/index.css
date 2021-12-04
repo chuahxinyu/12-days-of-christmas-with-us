@@ -5,13 +5,13 @@
 }
 
 .header {
-  min-height: 100px;
+  min-height: 0px;
   width: 100%;
 }
 nav {
   display: flex;
-  padding: 20px;
-  height: 80px;
+  padding: 1rem;
+  height: 10%;
 
   justify-content: space-between;
   align-items: center;
@@ -41,32 +41,20 @@ nav ul li a {
   border: 3px solid #cf475a;
   text-decoration: none;
 }
-a.sign_up {
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 23px;
-  color: #cf475a;
-}
-a.log_in {
-  background: #cf475a;
-  font-family: IBM Plex Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 23px;
+  .sign_up {
+    font-family: IBM Plex Sans;
+    font-size: 1rem;
+    color: #cf475a;
+  }
+  .log_in {
+    background: #cf475a;
+    font-family: IBM Plex Sans;
+    font-size: 1rem;
+    color: #f5f2e9;
+  }
 
-  color: #f5f2e9;
-}
-
-div.text_box {
-  position: absolute;
-  width: 90%;
-  height: 330px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.text_box {
+  top: 10%;
   text-align: center;
 
   font-family: Ubuntu;
@@ -78,6 +66,23 @@ div.text_box {
   color: #2b5341;
 }
 
-div.horizontal-line{
-    width:80
+.horizontal-line {
+  margin: auto;
+  width: 90%;
+  border-bottom: 4px solid #cf475a;
+  padding: 5px;
+}
+.grid-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+    
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 1rem;
+  text-align: center;
 }
