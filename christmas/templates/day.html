@@ -89,25 +89,31 @@
                     <div class="song-img-container">
                         <div class="song-white-dot"></div>
                         <img
-                            src="/static/songs/1-placeholder.jpg"
+                            src="/static/song-img/1-placeholder.jpg"
                             alt="Santa Claus: The Movie poster"
                             class="song-img"
                         />
                     </div>
                     <h2>Song Title</h2>
+                    <h4>Artist</h4>
                     <div class="controls-container">
+                        <audio controls autoplay>
+                            <source src="/static/song-mp3/Happy Xmas (War Is Over).mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <!-- 
                         <div class="play-pause">
                             <i class="fa fa-play"></i>
-                            <!-- <i class="fa fa-pause"></i> -->
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
             <div class="card notes">
                 <div class="card-content-container">
                     <h2>Notes</h2>
-                    <form>
+                    <form class="notes-container">
                         <textarea placeholder="Enter your notes here..."></textarea>
                         <button class="save-btn" type="submit">Save</button>
                     </form>
