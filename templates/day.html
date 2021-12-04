@@ -17,9 +17,20 @@
         <title>12-Days-of-Christmas-with-us</title>
 
     </head>
-    <header>
-        
-    </header>
+
+    <section class="header">
+        <nav>
+            <!-- TODO Daniel -->
+            <a href="/">
+            <img src="{{ url_for('static', filename='santa/Home.png') }}" />
+            </a>
+
+            <ul>
+            <li><a class="sign_up" href="/signup">SIGN UP</a></li>
+            <li><a class="log_in" href="/login">LOG IN</a></li>
+            </ul>
+        </nav>
+    </section>
     <body>
         <div class="grid-container">
             <div class="day-header">
@@ -33,7 +44,7 @@
                     <img 
                         src="/static/movies/1-santa-claus-the-movie.jpg" 
                         alt="Santa Claus: The Movie poster"
-                        class="card-img"
+                        class="card-img movie"
                     >
                 </div>
 
@@ -55,7 +66,7 @@
                     <img 
                         src="/static/recipes/1-soft-christmas-cookies.jpg" 
                         alt="Santa Claus: The Movie poster"
-                        class="card-img"
+                        class="card-img recipe"
                     >
                 </div>
 
