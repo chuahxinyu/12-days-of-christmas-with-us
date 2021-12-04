@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/login")
+@app.route("/login", methods = ["GET", "POST"])
 def login():
     return render_template("login.html")
 
@@ -16,6 +16,6 @@ def signup():
         return render_template("signup.html")
     password = request.form.get("password")
     if password != request.form.get("password-confirm"):
-        return redirect("/signup")
+        return render_template("signup.html", error=True)
     
     return redirect("/")
