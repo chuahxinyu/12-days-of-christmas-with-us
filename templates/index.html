@@ -20,7 +20,9 @@
     <section class="header">
       <nav>
         <!-- TODO Daniel -->
-        <a href="index.html"><img src="/static/santa/Home.png" /></a>
+        <a href="/"
+          ><img src="{{ url_for('static', filename='santa/Home.png') }}"
+        /></a>
 
         <ul>
           <li><a class="sign_up" href="/signup">SIGN UP</a></li>

@@ -7,6 +7,14 @@ body {
   padding: 0;
 }
 
+nav img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 4rem;
+  margin: 0;
+}
+
 #login-img {
   width: 50%;
   background-color: #4ca77e;
