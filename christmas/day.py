@@ -10,7 +10,7 @@ def day(day_num):
     db = get_db()
     day_info = {
         "day_num": 1,
-        "img": "",
+        "img": "/static/santa/bell.png",
         "movie_id": 2,
         "song_id": 3,
         "recipe_id": 1
@@ -23,7 +23,7 @@ def day(day_num):
         "name": "Fallback Name",
         "title": "Fallback Title",
         "artist": "Fallback Artist",
-        "link": "/static/song-mp3/Happy Xmas (War Is Over).mp3",
+        "link": "/static/song-mp3/1-Happy_Xmas.mp3",
         "external_link": "https://duckduckgo.com/?t=ffab",
         "img": "/static/song-img/1-Happy_Xmas_John_Lennon.jpg",
         "description": "Fallback description"
