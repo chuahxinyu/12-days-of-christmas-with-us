@@ -29,10 +29,11 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html')
 
-    @app.route('/day')
-    def day():
-        return render_template('day.html')
+    # @app.route('/day')
+    # def day():
+    #     return render_template('day.html')
     
+
 
     from . import db
     db.init_app(app)
@@ -43,4 +44,7 @@ def create_app(test_config=None):
     from . import internal
     app.register_blueprint(internal.bp)
     
+    from . import day
+    app.register_blueprint(day.bp)
+
     return app
