@@ -11,6 +11,21 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 TOTAL_DAYS = 12
 
+index_files = [
+    "candle.png",
+    "christmas tree_angle.png",
+    "snowman.png",
+    "snata with black glasses_angle.png",
+    "ginger breadman.png",
+    "wreath_angle.png",
+    "santa with snowball.png",
+    "christmas ball.png",
+    "firework_angle.png",
+    "santa with deers.png",
+    "snowflake.png",
+    "santa stuck in pipe.png",
+]
+
 @bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
@@ -36,15 +51,16 @@ def signup():
             except db.IntegrityError:
                 error = f"{email} is already used"
             else:
-                user_id = db.execute(
+                userid = db.execute(
                     "SELECT id FROM user ORDER BY id DESC LIMIT 1"
                 ).fetchone()
-                print(user_id)
+                print(userid[0])
                 for day_num in range(1, TOTAL_DAYS+1):
                     db.execute(
-                        "INSERT INTO user_days VALUES (?, ?, ?, ?, ?)",
-                        (user_id, day_num, 2+day_num, 5+day_num, day_num)
+                        "INSERT INTO user_days VALUES (?, ?, ?, ?, ?, ?)",
+                        (userid[0], day_num, 1+day_num, 4+day_num, day_num, "/static/santa/" + index_files[day_num-1])
                     )
+                    db.commit();
                 return redirect(url_for("auth.login"))
         
         flash(error)
@@ -81,12 +97,13 @@ def login():
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
+    print(user_id)
 
     if user_id is None:
         g.user = None
     else:
         g.user = get_db().execute(
-            'SELECT * FROM user WHERE id = ?', user_id
+            'SELECT * FROM user WHERE id = ?', (user_id, )
         ).fetchone()
 
 
