@@ -1,12 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #f5f2e9;
 }
 
 .header {
-  min-height: 100vh;
+  min-height: 100px;
   width: 100%;
-  background-color: #e3c45a;
 }
 nav {
   display: flex;
@@ -17,7 +17,11 @@ nav {
   align-items: center;
 }
 nav img {
-  width: 100px;
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  left: 47px;
+  top: 30px;
 }
 nav ul {
   float: right;
@@ -31,11 +35,49 @@ nav ul li {
   position: relative;
 }
 nav ul li a {
+  color: #000000;
   text-transform: uppercase;
   padding: 7px 13px;
-  border-radius: 3;
+  border: 3px solid #cf475a;
+  text-decoration: none;
 }
-a.active,
-a:hover {
-  background: #000;
+a.sign_up {
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: #cf475a;
+}
+a.log_in {
+  background: #cf475a;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: #f5f2e9;
+}
+
+div.text_box {
+  position: absolute;
+  width: 90%;
+  height: 330px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  /* font-weight: bold; */
+  font-size: 50px;
+  line-height: 165px;
+
+  color: #2b5341;
+}
+
+div.horizontal-line{
+    width:80
 }
