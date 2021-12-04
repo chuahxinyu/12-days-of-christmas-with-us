@@ -28,6 +28,9 @@ def day(day_num):
         user_num = g.user["id"]
     else:
         user_num = 1
+        user_info = db.execute(
+            "SELECT * FROM user WHERE id = 1"
+        ).fetchone()
 
     day_info = db.execute(
         "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
