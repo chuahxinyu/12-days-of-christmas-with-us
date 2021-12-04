@@ -19,3 +19,7 @@ def signup():
         return render_template("signup.html", error=True)
     
     return redirect("/")
+
+@app.route("/day")
+def day_one():
+    return render_template("day.html")

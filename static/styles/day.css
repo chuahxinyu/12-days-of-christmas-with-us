@@ -5,11 +5,11 @@
 }
 
 .header {
-    position: absolute;
-    margin: 0 auto;
-    top: 0;
-    right: 0;
-    left: 0;
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 /* NAVBAR */
@@ -81,7 +81,7 @@ h1 {
 
 .grid-container {
   margin: 0 10%;
-  margin-top: 70px;
+  margin-top: 10%;
   width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
