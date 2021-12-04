@@ -25,96 +25,112 @@
     <body>
         <section class="header">
             <nav>
-                <!-- TODO Daniel -->
                 <a href="/">
                     <i class="fa fa-home fa-2x"></i>
                 </a>
 
                 <ul>
+                    {% if not logged_in %}
                     <li><a class="sign_up" href="/signup">SIGN UP</a></li>
                     <li><a class="log_in" href="/login">LOG IN</a></li>
+                    {% else %}
+                    <li><a class="log_in" href="">LOG OUT</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </section>
         <div class="grid-container">
             <div class="day-header">
-                <h1>DAY 1</h1>
+                <div class="day-header-img-container">
+                    <img
+                        src={{ day_image }}
+                        alt="Christmas Themed Day Image"
+                        class="day-header-img"
+                    />
+                </div>
+                <div class="day-text">
+                    <h1>DAY {{ day_num }}</h1>
+                </div>
+                <div class="day-header-img-container">
+                    <img
+                        src={{ day_image }}
+                        alt="Christmas Themed Day Image"
+                        class="day-header-img"
+                    />
+                </div>
             </div>
+            
 
             <a
                 class="card movie"
-                href="https://duckduckgo.com/?t=ffab"
+                href={{ movie_link }}
                 target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
-                        src="/static/movies/1-santa-claus-the-movie.jpg"
-                        alt="Santa Claus: The Movie poster"
+                        src={{ movie_img }}
+                        alt={{ movie_name }} + "poster"
                         class="card-img movie"
                     />
                 </div>
 
                 <div class="card-content-container">
-                    <h2>Santa Claus: The Movie</h2>
+                    <h2>{{ movie_name }}</h2>
                     <p>
-                        The legend of Santa Claus is put in jeopardy when an
-                        unscrupulous toy manufacturer attempts to take over
-                        Christmas.
+                        {{ movie_descrip }}
                     </p>
                 </div>
             </a>
 
             <a
                 class="card recipe"
-                href="https://duckduckgo.com/?t=ffab"
+                href={{ recipe_link }}
                 target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
-                        src="/static/recipes/1-soft-christmas-cookies.jpg"
+                        src={{ recipe_img }}
                         alt="Santa Claus: The Movie poster"
                         class="card-img recipe"
                     />
                 </div>
 
                 <div class="card-content-container">
-                    <h2>Recipe</h2>
+                    <h2>{{ recipe_name }}</h2>
+                    <p>
+                        {{ recipe_descrip }}
+                    </p>
                 </div>
             </a>
 
             <div class="card song">
-                <div class="card-content-container">
+                <div class="card-content-container song">
                     <div class="song-img-container">
                         <div class="song-white-dot"></div>
                         <img
-                            src="/static/song-img/1-placeholder.jpg"
-                            alt="Santa Claus: The Movie poster"
+                            src={{ song_img }}
+                            alt="album art"
                             class="song-img"
                         />
                     </div>
-                    <h2>Song Title</h2>
-                    <h4>Artist</h4>
+                    <h2>{{ song_name }}</h2>
+                    <h4>{{ song_artists }}</h4>
                     <div class="controls-container">
-                        <audio controls autoplay>
-                            <source src="/static/song-mp3/Happy Xmas (War Is Over).mp3" type="audio/mpeg">
+                        <audio controls>
+                            <source src={{ song_mp3 }} type="audio/mpeg">
+                            Your browser does not support the audio element.
                         </audio>
                     </div>
-
-                    <!-- 
-                        <div class="play-pause">
-                            <i class="fa fa-play"></i>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
             <div class="card notes">
-                <div class="card-content-container">
+                <div class="">
                     <h2>Notes</h2>
                     <form class="notes-container">
-                        <textarea placeholder="Enter your notes here..."></textarea>
+                        <textarea placeholder="Enter your notes here...">{{ notes }}</textarea>
                         <button class="save-btn" type="submit">Save</button>
                     </form>
                 </div>

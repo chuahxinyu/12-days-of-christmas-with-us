@@ -84,6 +84,27 @@ h1 {
 .day-header {
   color: #f5f2e9;
   grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-header-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .day-header-img {
+    height: 5rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+  }
+
+.day-text {
+  padding: 0 2rem;
 }
 
 .grid-container {
@@ -176,29 +197,6 @@ h1 {
       object-position: center;
       border-radius: 50%;
       
-    }
-
-    .controls-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .play-pause {
-      width: 1rem;
-      height: 1rem;
-      padding: 1rem;
-      color: #CF475A;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .play-pause:hover {
-      cursor: pointer;
-      background-color: #ffcbd36c;
     }
 
   .notes {
