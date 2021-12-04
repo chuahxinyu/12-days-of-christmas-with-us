@@ -13,7 +13,6 @@
   <body>
     <section class="header">
       <nav>
-        <!-- TODO Daniel -->
         <a href="/">
           <img src="{{ url_for('static', filename='santa/Home.png') }}" />
         </a>
@@ -30,9 +29,74 @@
     </div>
 
     <div class="grid-container">
-      <a class="grid-item green" href="/day/1">day 1</a>
-      <a class="grid-item red" href="/day/2">day 2</a>
-      <a class="grid-item yellow" href="/day/3">day 3</a>
+      {% for day in days %}
+      {% if day["day_num"] % 3 == 1 and day["day_num"] <=6 %}
+        <a class="grid-item green" href={{ day_links[day["day_num"]-1] }}>
+          <div class="day-img-container">
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+          </div>
+        </a>
+      {% endif %}
+      {% if day["day_num"] % 3 == 2 and day["day_num"] <= 6 %}
+        <a class="grid-item red" href={{ day_links[day["day_num"]-1] }}>
+          <div class="day-img-container">
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+          </div>
+        </a>
+      {% endif %}
+      {% if day["day_num"] % 3 == 0 and day["day_num"] <= 6 %}
+        <a class="grid-item yellow" href={{ day_links[day["day_num"]-1] }}>
+          <div class="day-img-container">
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+          </div>
+        </a>
+      {% endif %}
+
+      {% if day["day_num"] % 3 == 2 and day["day_num"] > 6 %}
+        <a class="grid-item green" href={{ day_links[day["day_num"]-1] }}>
+          <div class="day-img-container">
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+          </div>
+        </a>
+      {% endif %}
+      {% if day["day_num"] % 3 == 0 and day["day_num"] > 6 %}
+        <a class="grid-item red" href={{ day_links[day["day_num"]-1] }}>
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+        </a>
+      {% endif %}
+      {% if day["day_num"] % 3 == 1 and day["day_num"] > 6 %}
+        <a class="grid-item yellow" href={{ day_links[day["day_num"]-1] }}>
+          <div class="day-img-container">
+            <img
+              src={{ day["img"] }}
+              alt="Christmas Themed Day Image"
+              class="day-img"
+            >
+          </div>
+        </a>
+      {% endif %}
+
+      <!-- <a class="grid-item yellow" href="/day/3">day 3</a>
       <a class="grid-item green" href="/day/4">day 4</a>
       <a class="grid-item red" href="/day/5">day 5</a>
       <a class="grid-item yellow" href="/day/6">day 6</a>
@@ -41,7 +105,8 @@
       <a class="grid-item red" href="/day/9">day 9</a>
       <a class="grid-item yellow" href="/day/10">day 10</a>
       <a class="grid-item green" href="/day/11">day 11</a>
-      <a class="grid-item red" href="/day/12">day 12</a>
+      <a class="grid-item red" href="/day/12">day 12</a> -->
+      {% endfor %}
     </div>
   </body>
 </html>

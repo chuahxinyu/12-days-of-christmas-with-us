@@ -1,8 +1,7 @@
 import os
-
-from flask import Flask
+from flask import Flask, g
 from flask.templating import render_template
-
+from christmas.db import get_db
 
 def create_app(test_config=None):
     # create and configure the app
@@ -27,11 +26,28 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return render_template('index.html')
+        db = get_db()
+        if g.user is None:
+            is_logged_in = False
+        else:
+            is_logged_in = True
 
-    # @app.route('/day')
-    # def day():
-    #     return render_template('day.html')
+        if is_logged_in:
+            user_num = g.user["id"]
+        else:
+            user_num = 1
+
+        days = []
+        day_links = []
+        for day_num in range(1, 13):
+            day_info = db.execute(
+                "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
+            ).fetchone()
+            days.append(day_info)
+            day_links.append("/day/"+str(day_num))
+        print(day_links)
+        
+        return render_template('index.html', days=days, day_links=day_links)
     
     from . import db
     db.init_app(app)
