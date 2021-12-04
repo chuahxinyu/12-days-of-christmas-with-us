@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles/userinfo.css" />
+    <link rel="stylesheet" href="/static/styles/signup.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div id="login-img">
+      <img src="{{ url_for('static', filename='santa standing on sled.png') }}" alt="Flying Santa Claus" />
+    </div>
+    <main>
+      <form action="#" method="get">
+        <div class="form-control-inline">
+          <label for="user-email">Your email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            autofocus
+            id="user-email"
+            name="email"
+          />
+        </div>
+        <div class="form-control-inline">
+          <label for="user-password">Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            id="user-password"
+            name="password"
+          />
+        </div>
+        <div class="form-control-inline">
+          <label for="user-password">Confirm Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password again"
+            id="user-password"
+            name="password"
+          />
+        </div>
+
+        <button type="submit">Sign up</button>
+      </form>
+    </main>
+  </body>
+</html>

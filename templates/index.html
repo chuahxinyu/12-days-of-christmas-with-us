@@ -19,7 +19,10 @@
   <body>
     <section class="header">
       <nav>
-        <a href="index.html"><img src="/src/Home.png" /></a>
+        <a href="index.html"
+          ><img src="{{ url_for('static', filename='Home.png') }}"
+        /></a>
+
         <ul>
           <li><a class="sign_up" href="">SIGN UP</a></li>
           <li><a class="log_in" href="">LOG IN</a></li>
