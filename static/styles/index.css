@@ -10,49 +10,48 @@
 }
 nav {
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   height: 10%;
+  width: 80%;
+  margin: 0 10%;
 
   justify-content: space-between;
   align-items: center;
-}
-nav img {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  left: 47px;
-  top: 30px;
+  border-bottom: 4px solid #cf475a;
 }
 nav ul {
-  float: right;
-  margin-right: 20px;
+  /* float: right; */
+  /* margin-right: 20px; */
   list-style: none;
 }
 nav ul li {
-  list-style: none;
+  /* list-style: none; */
   display: inline-block;
-  margin: 0 5px;
-  position: relative;
+  /* margin: 0 5px; */
+  /* position: relative; */
 }
+
+/* SIGN UP and LOGIN buttons */
 nav ul li a {
-  color: #000000;
+  /* color: #000000; */
   text-transform: uppercase;
-  padding: 7px 13px;
+  padding: 0.4rem;
   border: 3px solid #cf475a;
   text-decoration: none;
 }
-  .sign_up {
-    font-family: IBM Plex Sans;
-    font-size: 1rem;
-    color: #cf475a;
-  }
-  .log_in {
-    background: #cf475a;
-    font-family: IBM Plex Sans;
-    font-size: 1rem;
-    color: #f5f2e9;
-  }
+.sign_up {
+  font-family: IBM Plex Sans;
+  font-size: 1rem;
+  color: #cf475a;
+}
+.log_in {
+  background: #cf475a;
+  font-family: IBM Plex Sans;
+  font-size: 1rem;
+  color: #f5f2e9;
+}
 
+/* 12 DAYS OF CHRISTMAS */
 .text_box {
   top: 10%;
   text-align: center;
@@ -62,27 +61,30 @@ nav ul li a {
   /* font-weight: bold; */
   font-size: 50px;
   line-height: 165px;
+  display: block;
 
   color: #2b5341;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
-.horizontal-line {
-  margin: auto;
-  width: 90%;
-  border-bottom: 4px solid #cf475a;
-  padding: 5px;
-}
 .grid-container {
   width: 80%;
   display: grid;
-  grid-template-columns: auto auto auto;
-    
-  padding: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  margin: 0 auto;
+  grid-gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
 }
 .grid-item {
+  height: 7rem;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 1rem;
   text-align: center;
+  display: inline-block;
 }
