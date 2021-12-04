@@ -1,6 +1,58 @@
+:root, * {
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    padding: 1rem 0;
+    height: 10%;
+    width: 80%;
+    margin: 0 10%;
+  
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #f5f2e9;
+}
+    nav ul {
+      /* float: right; */
+      /* margin-right: 20px; */
+      list-style: none;
+    }
+    nav ul li {
+      /* list-style: none; */
+      display: inline-block;
+      /* margin: 0 5px; */
+      /* position: relative; */
+    }
+  
+    /* SIGN UP and LOGIN buttons */
+    nav ul li a {
+      /* color: #000000; */
+      text-transform: uppercase;
+      padding: 0.4rem;
+      border: 3px solid #f5f2e9;
+      text-decoration: none;
+    }
+
+    .sign_up {
+      font-family: IBM Plex Sans;
+      font-size: 1rem;
+      color: #f5f2e9;
+    }
+
+    .log_in {
+      background: #f5f2e9;
+      font-family: IBM Plex Sans;
+      font-size: 1rem;
+      color: #cf475a;
+    }
+
 body {
     display: flex;
     background: linear-gradient(180deg, #CB3236 0%, #8F292B 79.69%) fixed;
+    font-family: "IBM Plex Sans", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -11,10 +63,16 @@ a {
     cursor: auto;
 }
 
+h1 {
+    font-size: 5rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
 .day-header {
     color: #F5F2E9;
     grid-area: header;
-    text-align: center;
 }
 
 .grid-container {
@@ -31,40 +89,47 @@ a {
 }
 
 .card {
-    background: #FFFFFF;
+    background: #F5F2E9;
     border-radius: 0.5rem;
     transition: transform .1s ease-out 0s;
-    
+    padding: 1rem;
 }
 
     .card-content-container {
-        padding: 0 10%;
+        padding: 1rem;
     }
 
     .card-img-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px;
     }
 
-    .card-img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 0.5rem;
-    }
+        .card-img.movie {
+            height:50vh;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0.5rem;
+        }
 
-    .movie {
+        .card-img.recipe {
+            height: 25vh;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0.5rem;
+        }
+
+    .card.movie {
         grid-area: movie;
     }
 
-    .recipe {
+    .card.recipe {
         grid-area: recipe;
     }
 
-    .song {
+    .card.song {
         grid-area: song;
     }
 
@@ -82,4 +147,10 @@ a {
         box-shadow: none;
         transform: none;
         cursor: text;
+    }
+
+    .card.song:hover {
+        box-shadow: none;
+        transform: none;
+        cursor: auto;
     }
