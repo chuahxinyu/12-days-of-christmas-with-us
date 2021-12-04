@@ -43,16 +43,18 @@
         placeholder="Enter your password"
         id="user-password"
         name="password"
+        autocomplete="off"
         required
       />
     </div>
     <div class="form-control-inline">
-      <label for="user-password">Confirm Password</label>
+      <label for="password-confirm">Confirm Password</label>
       <input
         type="password"
         placeholder="Enter your password again"
-        id="user-password"
+        id="password-confirm"
         name="password-confirm"
+        autocomplete="off"
         required
       />
       {% if error %}
