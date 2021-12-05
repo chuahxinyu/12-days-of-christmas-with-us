@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="with=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="/static/styles/day.css" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
+        <title>12-Days-of-Christmas-with-us</title>
+    </head>
+
+    {% if day_info["day_num"] % 3 == 1 %}
+        {% set gradient_colour = "red-gradient" %}
+    {% endif %}
+    {% if day_info["day_num"] % 3 == 2 %}
+        {% set gradient_colour = "green-gradient" %}
+    {% endif %}
+    {% if day_info["day_num"] % 3 == 0 %}
+        {% set gradient_colour = "blue-gradient" %}
+    {% endif %}
+
+    <body class="{{ gradient_colour }}">
+        <section class="header">
+            <nav>
+                <a href="/">
+                    <i class="fa fa-home fa-2x btn"></i>
+                </a>
+
+                <ul>
+                    {% if not logged_in %}
+                    <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
+                    <li><a class="log_in {{ gradient_colour }}" href="/auth/login">LOG IN</a></li>
+                    {% else %}
+                    <li><a class="log_in {{ gradient_colour }}" href="/auth/logout">LOG OUT</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </section>
+
+        <div class="grid-container">
+            <div class="day-header">
+                <a class="fa fa-angle-left fa-2x btn prev-next" href="{{ day_links[day_info["day_num"]-2] }}"></a>
+                <div class="day-header-img-container">
+                    <img
+                        src={{ day_info["img"] }}
+                        alt="Christmas Themed Day Image"
+                        class="day-header-img"
+                    />
+                </div>
+                <div class="day-text">
+                    <h1>DAY {{ day_info["day_num"] }}</h1>
+                </div>
+                <div class="day-header-img-container">
+                    <img
+                        src={{ day_info["img"] }}
+                        alt="Christmas Themed Day Image"
+                        class="day-header-img"
+                    />
+                </div>
+                <a class="fa fa-angle-right fa-2x btn prev-next" href="{{ 1 if day_info["day_num"] == 12 else day_links[day_info["day_num"]] }}"></a>
+            </div>
+            
+
+            <a
+                class="card movie"
+                href={{ movie_info["external_link"] }}
+                target="_blank"
+            >
+                <!-- TODO Daniel -->
+                <div class="card-img-container">
+                    <img
+                        src={{ movie_info["img"] }}
+                        alt={{ movie_info["title"] }} + " poster"
+                        class="card-img movie"
+                    />
+                </div>
+
+                <div class="card-content-container">
+                    <h2>{{ movie_info["title"] }}</h2>
+                    <p>
+                        {{ movie_info["description"] }}
+                    </p>
+                </div>
+            </a>
+
+            <a
+                class="card recipe"
+                href={{ recipe_info["external_link"] }}
+                target="_blank"
+            >
+                <!-- TODO Daniel -->
+                <div class="card-img-container">
+                    <img
+                        src={{ recipe_info["img"] }}
+                        alt="Santa Claus: The Movie poster"
+                        class="card-img recipe"
+                    />
+                </div>
+
+                <div class="card-content-container">
+                    <h2>{{ recipe_info["name"] }}</h2>
+                    <p>
+                        {{ recipe_info["description"] }}
+                    </p>
+                </div>
+            </a>
+
+            <div class="card song">
+                <div class="card-content-container song">
+                    <div class="song-top-container">
+                        <div class="song-img-container">
+                            <div class="song-white-dot"></div>
+                            <img
+                                src={{ song_info["img"] }}
+                                alt="album art"
+                                class="song-img"
+                            />
+                        </div>
+                        <div>
+                            <h2>{{ song_info["title"] }}</h2>
+                        <h4>{{ song_info["artist"] }}</h4>
+                        </div>
+                        
+                    </div>
+                        <audio controls>
+                            <source src={{ song_info["link"] }} type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                </div>
+            </div>
+
+            <div class="card notes">
+                <div class="">
+                    <h2>Notes</h2>
+                    <form class="notes-container" action="/update_notes " method="post">
+                        <textarea name="notes" placeholder="Enter your notes here...">{{ notes }}</textarea>
+                        <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
+                        <button class="save-btn" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
