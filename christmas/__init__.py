@@ -38,14 +38,12 @@ def create_app(test_config=None):
             user_num = 1
 
         days = []
-        day_links = []
+        day_links = ["/day/"+str(day_num) for day_num in range(1, 13)]
         for day_num in range(1, 13):
             day_info = db.execute(
                 "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
             ).fetchone()
             days.append(day_info)
-            day_links.append("/day/"+str(day_num))
-        print(day_links)
         
         return render_template('index.html', days=days, day_links=day_links)
     

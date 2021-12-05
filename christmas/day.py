@@ -36,8 +36,6 @@ def day(day_num):
         "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
     ).fetchone()
 
-    print(day_info["img"])
-
     if day_info is None:
         day_info = {
             "day_num": 1,
@@ -68,7 +66,10 @@ def day(day_num):
     if song_info is None:
         song_info = FALLBACK_INFO
 
+    day_links = ["/day/"+str(day_num) for day_num in range(1, 13)]
+
     return render_template("day.html",
+        day_links=day_links,
         logged_in=is_logged_in,
         day_info=day_info,
         movie_info=movie_info,

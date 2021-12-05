@@ -4,6 +4,25 @@
     padding: 0;
 }
 
+body {
+    display: flex;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.red-gradient {
+    background: linear-gradient(180deg, #cb3236 0%, #8f292b 79.69%) fixed;
+}
+
+.green-gradient {
+    background: linear-gradient(180deg, #366550 0%, #071D13 100%) fixed;
+}
+
+.blue-gradient {
+    background: linear-gradient(180deg, #0C497C 0%, #081532 100%) fixed;
+}
+
 .header {
     position: absolute;
     margin: 0 auto;
@@ -11,6 +30,7 @@
     right: 0;
     left: 0;
 }
+
 
 /* --------------------------------- NAVBAR --------------------------------- */
 nav {
@@ -34,8 +54,12 @@ nav ul li {
     color: #f5f2e9;
 }
 
-.header-home:hover {
+.btn:hover {
     cursor: pointer;
+}
+
+.prev-next {
+    padding: 0 3rem;
 }
 
 /* ------------------------ SIGN UP and LOGIN buttons ----------------------- */
@@ -53,24 +77,25 @@ nav ul li a {
 }
 
 .log_in {
-    background: #f5f2e9;
     font-family: IBM Plex Sans;
     font-size: 1rem;
-    color: #cf475a;
     margin-left: 0.5rem;
+    background: #f5f2e9 !important;
+}
+
+.log_in.red-gradient {
+    color: #cf475a;
+}
+.log_in.green-gradient {
+    color: #366550;
+}
+.log_in.blue-gradient {
+    color: #0C497C;
 }
 
 .sign_up:hover,
 .log_in:hover {
     cursor: pointer;
-}
-
-body {
-    display: flex;
-    background: linear-gradient(180deg, #cb3236 0%, #8f292b 79.69%) fixed;
-    font-family: "IBM Plex Sans", sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 a {
@@ -255,4 +280,12 @@ textarea {
 
 .save-btn:hover {
     cursor: pointer;
+}
+
+/* --------------------------------- FOOTER --------------------------------- */
+footer {
+    height: 1rem;
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
 }
