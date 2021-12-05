@@ -74,16 +74,15 @@ nav {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   margin: 0 auto;
-  grid-gap: 1rem;
+  grid-gap: 0.7rem;
 
   align-items: center;
   justify-content: center;
 }
 .grid-item {
-  height: 7rem;
+  height: 20vh;
   width: auto;
   text-decoration: none;
-  padding: 20px;
   font-size: 1rem;
   text-align: center;
   display: flex;
