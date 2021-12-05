@@ -109,10 +109,8 @@
                 </div>
             </div>
 
-            <a
+            <div
                 class="card recipe"
-                href={{ recipe_info["external_link"] }}
-                target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
@@ -124,12 +122,30 @@
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ recipe_info["name"] }}</h2>
+                    <!-- <h2>{{ recipe_info["name"] }}</h2> -->
+                    <!-- Dropdown menu for recipe -->
+                    <div class="card-content-container">
+                        <!-- Action doesnt do anything yet -->
+                        <form class="notes-container" action="# " method="post">
+                            <select name="recipes" id="">
+                                {% for i in range(0, recipes_num) %}
+                                    {% if all_recipes[i][0] == recipe_info["name"] %}
+                                        <option value="{{ all_recipes[i][0] }}" selected>{{ all_recipes[i][0] }}</option>
+                                    {% else %}
+                                        <option value="{{ all_recipes[i][0] }}">{{ all_recipes[i][0] }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            
+                            <button class="save-btn" type="submit">Save Changes</button>
+                        </form>
+                        <a class="log_in {{ gradient_colour }}" href={{ recipe_info["external_link"] }}>EXPLORE</a>
+                    </div>
                     <p>
                         {{ recipe_info["description"] }}
                     </p>
                 </div>
-            </a>
+            </div>
 
             <div class="card song">
                 <div class="card-content-container song">

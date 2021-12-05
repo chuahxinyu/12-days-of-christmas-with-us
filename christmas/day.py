@@ -7,6 +7,9 @@ from christmas.db import get_db
 bp = Blueprint("day", __name__)
 
 MOVIES_NUM = 13
+RECIPES_NUM = 12
+
+
 @bp.route("/day/<day_num>", methods=["GET", "POST"])
 def day(day_num):
     FALLBACK_INFO = {
@@ -36,7 +39,8 @@ def day(day_num):
         ).fetchone()
 
     day_info = db.execute(
-        "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
+        "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (
+            user_num, day_num)
     ).fetchone()
 
     if day_info is None:
@@ -75,17 +79,27 @@ def day(day_num):
         "SELECT title FROM movies"
     ).fetchall()
 
+    all_recipes = db.execute(
+        "SELECT name FROM recipes"
+    ).fetchall()
+
     return render_template("day.html",
-        movies_num=MOVIES_NUM,
-        all_movies=all_movies,
-        day_links=day_links,
-        logged_in=is_logged_in,
-        day_info=day_info,
-        movie_info=movie_info,
-        recipe_info=recipe_info,
-        song_info=song_info,
-        notes=user_info["notes"]
-    )
+                           movies_num=MOVIES_NUM,
+                           all_movies=all_movies,
+
+                           recipes_num=RECIPES_NUM,
+                           all_recipes=all_recipes,
+
+                           day_links=day_links,
+                           logged_in=is_logged_in,
+                           day_info=day_info,
+                           movie_info=movie_info,
+                           recipe_info=recipe_info,
+                           song_info=song_info,
+                           notes=user_info["notes"]
+
+                           )
+
 
 @login_required
 @bp.route("/update_movies", methods=["POST"])
@@ -121,7 +135,7 @@ def update_notes():
     db = get_db()
 
     db.execute(
-        "UPDATE user SET notes=? WHERE id=?", (notes,user_id)
+        "UPDATE user SET notes=? WHERE id=?", (notes, user_id)
     )
     db.commit()
 
