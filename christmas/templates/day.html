@@ -74,10 +74,10 @@
             </div>
             
 
-            <a
+            <div
                 class="card movie"
-                href={{ movie_info["external_link"] }}
-                target="_blank"
+                <!-- href={{ movie_info["external_link"] }}
+                target="_blank" -->
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
@@ -89,20 +89,25 @@
                 </div>
 
                 <div class="card-content-container">
-                    <select name="movies" id="">
-                        {% for i in range(0, movies_num) %}
-                            {% if all_movies[i][0] == movie_info["title"] %}
-                                <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][0] }}</option>
-                            {% else %}
-                                <option value="{{ all_movies[i][0] }}">{{ all_movies[i][0] }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <p>
-                        {{ movie_info["description"] }}
-                    </p>
+                    <!-- Action doesnt do anything yet -->
+                    <form class="notes-container" action="# " method="post">
+                        <select name="movies" id="">
+                            {% for i in range(0, movies_num) %}
+                                {% if all_movies[i][0] == movie_info["title"] %}
+                                    <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][0] }}</option>
+                                {% else %}
+                                    <option value="{{ all_movies[i][0] }}">{{ all_movies[i][0] }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <p>
+                            {{ movie_info["description"] }}
+                        </p>
+                        <button class="save-btn" type="submit">Save Changes</button>
+                    </form>
+                    <a class="log_in {{ gradient_colour }}" href={{ movie_info["external_link"] }}>EXPLORE</a>
                 </div>
-            </a>
+            </div>
 
             <a
                 class="card recipe"
