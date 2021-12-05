@@ -120,22 +120,25 @@
 
             <div class="card song">
                 <div class="card-content-container song">
-                    <div class="song-img-container">
-                        <div class="song-white-dot"></div>
-                        <img
-                            src={{ song_info["img"] }}
-                            alt="album art"
-                            class="song-img"
-                        />
+                    <div class="song-top-container">
+                        <div class="song-img-container">
+                            <div class="song-white-dot"></div>
+                            <img
+                                src={{ song_info["img"] }}
+                                alt="album art"
+                                class="song-img"
+                            />
+                        </div>
+                        <div>
+                            <h2>{{ song_info["title"] }}</h2>
+                        <h4>{{ song_info["artist"] }}</h4>
+                        </div>
+                        
                     </div>
-                    <h2>{{ song_info["title"] }}</h2>
-                    <h4>{{ song_info["artist"] }}</h4>
-                    <div class="controls-container">
                         <audio controls>
                             <source src={{ song_info["link"] }} type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
-                    </div>
                 </div>
             </div>
 
