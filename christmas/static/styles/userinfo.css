@@ -62,3 +62,13 @@ body button {
   color: red;
   margin: 0;
 }
+
+.home-btn {
+  position: absolute;
+  padding: 1rem;
+  color: aliceblue;
+}
+
+.home-btn:hover {
+  cursor: pointer;
+}

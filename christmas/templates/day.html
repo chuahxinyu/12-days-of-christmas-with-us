@@ -98,12 +98,14 @@
                                 {% endif %}
                             {% endfor %}
                         </select>
-                        <button class="save-btn" type="submit">Save Changes</button>
+                        <button class="save-btn" type="submit">Save</button>
                     </form>
                     <p>
                         {{ movie_info["description"] }}
                     </p>
-                    <a class="link" href={{ movie_info["external_link"] }} target="_blank"> <i class="fa fa-external-link"></i> EXPLORE </a>
+                    <div class="explore">
+                        <a class="link" href={{ movie_info["external_link"] }} target="_blank"> <i class="fa fa-external-link"></i> EXPLORE </a>
+                    </div>
                 </div>
             </div>
 
@@ -120,7 +122,7 @@
 
                 <div class="card-content-container">
                     <!-- Dropdown menu for recipe -->
-                    <div class="card-content-container">
+                    
                         <form class="notes-container" action="/update_recipe" method="post">
                             <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
                             <select name="recipe" id="">
@@ -132,16 +134,18 @@
                                     {% endif %}
                                 {% endfor %}
                             </select>
-                            <button class="save-btn" type="submit">Save Changes</button>
+                            <button class="save-btn" type="submit">Save</button>
                         </form>
-                    </div>
+                    
                     <p>
                         {{ recipe_info["description"] }}
                     </p>
-                    <a class="link" href={{ recipe_info["external_link"] }} target="_blank">
-                        <i class="fa fa-external-link"></i>
-                        EXPLORE
-                    </a>
+                    <div class="explore">
+                        <a class="link" href={{ recipe_info["external_link"] }} target="_blank">
+                            <i class="fa fa-external-link"></i>
+                            EXPLORE
+                        </a>
+                    </div>
                 </div>
             </div>
 
