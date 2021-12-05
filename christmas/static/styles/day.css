@@ -35,7 +35,7 @@ body {
 /* --------------------------------- NAVBAR --------------------------------- */
 nav {
     display: flex;
-    height: 7vh;
+    height: 5rem;
     width: 80%;
     margin: 0 10%;
 
@@ -141,16 +141,17 @@ h1 {
 /* ---------------------------------- CARDS --------------------------------- */
 .grid-container {
     margin: 0 10%;
-    margin-top: calc(7vh + 1rem);
+    margin-top: 5rem;
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto 1rem;
     grid-gap: 1rem;
     grid-template-areas:
         "header header header"
         "movie recipe notes"
-        "movie song notes";
+        "movie song notes"
+        "footer footer footer";
 }
 
 .card {
@@ -280,12 +281,4 @@ textarea {
 
 .save-btn:hover {
     cursor: pointer;
-}
-
-/* --------------------------------- FOOTER --------------------------------- */
-footer {
-    height: 1rem;
-    width: 100%;
-    bottom: 0%;
-    position: absolute;
 }

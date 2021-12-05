@@ -7,6 +7,7 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
+  background-color: #f5f2e9;
 }
 
 .header {
@@ -14,47 +15,87 @@ body {
   width: 100%;
 }
 
-/* NAVBAR */
+.header {
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+/* --------------------------------- NAVBAR --------------------------------- */
 nav {
+  position: absolute;
   display: flex;
-  padding: 1rem 0;
-  height: 10%;
+  height: 5rem;
   width: 80%;
   margin: 0 10%;
 
   justify-content: space-between;
   align-items: center;
-  border-bottom: 4px solid #cf475a;
+  border-bottom: 3px solid #cf475a;
 }
-  nav ul {
-    list-style: none;
-  }
-  nav ul li {
-    display: inline-block;
-  }
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+}
 
-  /* SIGN UP and LOGIN buttons */
-  nav ul li a {
-    text-transform: uppercase;
-    padding: 0.4rem;
-    border: 3px solid #cf475a;
-    text-decoration: none;
-  }
-  .sign_up {
-    font-family: IBM Plex Sans;
-    font-size: 1rem;
-    color: #cf475a;
-  }
-  .log_in {
-    background: #cf475a;
-    font-family: IBM Plex Sans;
-    font-size: 1rem;
-    color: #f5f2e9;
-  }
+.fa-home {
+  color: #cf475a;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.prev-next {
+  padding: 0 3rem;
+}
+
+/* ------------------------ SIGN UP and LOGIN buttons ----------------------- */
+nav ul li a {
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border: 3px solid #cf475a;
+  text-decoration: none;
+}
+
+.sign_up {
+  font-family: IBM Plex Sans;
+  font-size: 1rem;
+  color: #cf475a;
+}
+
+.log_in {
+  font-family: IBM Plex Sans;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  background: #cf475a !important;
+  color: #f5f2e9;
+}
+
+.sign_up:hover,
+.log_in:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+h1 {
+  line-height: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
 
 /* 12 DAYS OF CHRISTMAS */
 .text_box {
-  top: 10%;
   text-align: center;
 
   font-family: Ubuntu;
@@ -64,7 +105,7 @@ nav {
   display: block;
 
   color: #2b5341;
-  margin-top: 2rem;
+  margin-top: 6rem;
   margin-bottom: 4rem;
 }
 
@@ -72,9 +113,9 @@ nav {
   width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-
   margin: 0 auto;
-  grid-gap: 0.7rem;
+  margin-bottom: 1rem;
+  grid-gap: 1rem;
 
   align-items: center;
   justify-content: center;
@@ -90,6 +131,10 @@ nav {
   align-items: center;
   perspective: 1000px;
   background-color: transparent;
+}
+
+.grid-item:hover {
+  cursor: pointer;
 }
 
 .yellow {

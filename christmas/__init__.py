@@ -45,7 +45,11 @@ def create_app(test_config=None):
             ).fetchone()
             days.append(day_info)
         
-        return render_template('index.html', days=days, day_links=day_links)
+        return render_template('index.html', 
+            logged_in=is_logged_in,
+            days=days, 
+            day_links=day_links
+        )
     
     from . import db
     db.init_app(app)

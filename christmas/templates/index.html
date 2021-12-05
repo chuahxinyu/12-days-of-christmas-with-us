@@ -5,6 +5,11 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 {% endblock %}
 
 {% block title %} 12-Days-of-Christmas-with-us {% endblock %} 
@@ -14,14 +19,18 @@
     <section class="header">
       <nav>
         <a href="/">
-          <img src="{{ url_for('static', filename='santa/Home.png') }}" />
+            <i class="fa fa-home fa-2x btn"></i>
         </a>
 
         <ul>
-          <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
-          <li><a class="log_in" href="/auth/login">LOG IN</a></li>
+            {% if not logged_in %}
+            <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
+            <li><a class="log_in {{ gradient_colour }}" href="/auth/login">LOG IN</a></li>
+            {% else %}
+            <li><a class="log_in {{ gradient_colour }}" href="/auth/logout">LOG OUT</a></li>
+            {% endif %}
         </ul>
-      </nav>
+    </nav>
     </section>
 
     <div class="text_box">
