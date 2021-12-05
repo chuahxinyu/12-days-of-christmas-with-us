@@ -90,13 +90,14 @@
 
                 <div class="card-content-container">
                     <!-- Action doesnt do anything yet -->
-                    <form class="notes-container" action="# " method="post">
-                        <select name="movies" id="">
+                    <form class="notes-container" action="/update_movie" method="post">
+                        <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
+                        <select name="movie" id="">
                             {% for i in range(0, movies_num) %}
-                                {% if all_movies[i][0] == movie_info["title"] %}
-                                    <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][0] }}</option>
+                                {% if all_movies[i][1] == movie_info["title"] %}
+                                    <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][1] }}</option>
                                 {% else %}
-                                    <option value="{{ all_movies[i][0] }}">{{ all_movies[i][0] }}</option>
+                                    <option value="{{ all_movies[i][0] }}">{{ all_movies[i][1] }}</option>
                                 {% endif %}
                             {% endfor %}
                         </select>

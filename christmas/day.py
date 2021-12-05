@@ -7,6 +7,8 @@ from christmas.db import get_db
 bp = Blueprint("day", __name__)
 
 MOVIES_NUM = 13
+RECIPES_NUM = 12
+
 @bp.route("/day/<day_num>", methods=["GET", "POST"])
 def day(day_num):
     FALLBACK_INFO = {
@@ -72,10 +74,16 @@ def day(day_num):
     day_links = ["/day/"+str(day_num) for day_num in range(1, 13)]
 
     all_movies = db.execute(
-        "SELECT title FROM movies"
+        "SELECT id, title FROM movies"
+    ).fetchall()
+
+    all_recipes = db.execute(
+        "SELECT id, name FROM recipes"
     ).fetchall()
 
     return render_template("day.html",
+        recipes_num=RECIPES_NUM,
+        all_recipes=all_recipes,
         movies_num=MOVIES_NUM,
         all_movies=all_movies,
         day_links=day_links,
@@ -98,14 +106,14 @@ def update_movies(item):
     day_num = request.form.get("day_num")
     db = get_db()
 
-    if item == "movies":
-        movie = request.form.get("movies")
+    if item == "movie":
+        movie = request.form.get("movie")
         db.execute(
-            "UPDATE user_days SET movie_id=? WHERE id=? AND day_num=?",
+            "UPDATE user_days SET movie_id=? WHERE user_id=? AND day_num=?",
             (movie, user_id, day_num)
         )
         db.commit()
-    elif item == "recipes":
+    elif item == "recipe":
         recipe = request.form.get("recipe")
         db.execute(
             "UPDATE user_days SET recipe_id=? WHERE id=? AND day_num=?",
