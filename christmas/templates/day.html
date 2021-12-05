@@ -74,10 +74,10 @@
             </div>
             
 
-            <a
+            <div
                 class="card movie"
-                href={{ movie_info["external_link"] }}
-                target="_blank"
+                <!-- href={{ movie_info["external_link"] }}
+                target="_blank" -->
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
@@ -89,17 +89,28 @@
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ movie_info["title"] }}</h2>
-                    <p>
-                        {{ movie_info["description"] }}
-                    </p>
+                    <form class="notes-container" action="/update_movie" method="post">
+                        <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
+                        <select name="movie" id="">
+                            {% for i in range(0, movies_num) %}
+                                {% if all_movies[i][1] == movie_info["title"] %}
+                                    <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][1] }}</option>
+                                {% else %}
+                                    <option value="{{ all_movies[i][0] }}">{{ all_movies[i][1] }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <p>
+                            {{ movie_info["description"] }}
+                        </p>
+                        <button class="save-btn" type="submit">Save Changes</button>
+                    </form>
+                    <a class="log_in {{ gradient_colour }}" href={{ movie_info["external_link"] }}>EXPLORE</a>
                 </div>
-            </a>
+            </div>
 
-            <a
+            <div
                 class="card recipe"
-                href={{ recipe_info["external_link"] }}
-                target="_blank"
             >
                 <!-- TODO Daniel -->
                 <div class="card-img-container">
@@ -111,12 +122,31 @@
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ recipe_info["name"] }}</h2>
+                    <!-- <h2>{{ recipe_info["name"] }}</h2> -->
+                    <!-- Dropdown menu for recipe -->
+                    <div class="card-content-container">
+                        <!-- Action doesnt do anything yet -->
+                        <form class="notes-container" action="/update_recipe" method="post">
+                            <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
+                            <select name="recipe" id="">
+                                {% for i in range(0, recipes_num) %}
+                                    {% if all_recipes[i][1] == recipe_info["name"] %}
+                                        <option value="{{ all_recipes[i][0] }}" selected>{{ all_recipes[i][1] }}</option>
+                                    {% else %}
+                                        <option value="{{ all_recipes[i][0] }}">{{ all_recipes[i][1] }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            
+                            <button class="save-btn" type="submit">Save Changes</button>
+                        </form>
+                        <a class="log_in {{ gradient_colour }}" href={{ recipe_info["external_link"] }}>EXPLORE</a>
+                    </div>
                     <p>
                         {{ recipe_info["description"] }}
                     </p>
                 </div>
-            </a>
+            </div>
 
             <div class="card song">
                 <div class="card-content-container song">

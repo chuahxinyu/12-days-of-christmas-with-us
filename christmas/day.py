@@ -6,6 +6,9 @@ from christmas.db import get_db
 
 bp = Blueprint("day", __name__)
 
+MOVIES_NUM = 13
+RECIPES_NUM = 12
+
 @bp.route("/day/<day_num>", methods=["GET", "POST"])
 def day(day_num):
     FALLBACK_INFO = {
@@ -35,7 +38,8 @@ def day(day_num):
         ).fetchone()
 
     day_info = db.execute(
-        "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (user_num, day_num)
+        "SELECT * FROM user_days WHERE user_id = ? AND day_num = ?", (
+            user_num, day_num)
     ).fetchone()
 
     if day_info is None:
@@ -70,7 +74,23 @@ def day(day_num):
 
     day_links = ["/day/"+str(day_num) for day_num in range(1, 13)]
 
+    all_movies = db.execute(
+        "SELECT id, title FROM movies"
+    ).fetchall()
+
+    all_recipes = db.execute(
+        "SELECT id, name FROM recipes"
+    ).fetchall()
+
+    all_recipes = db.execute(
+        "SELECT id, name FROM recipes"
+    ).fetchall()
+
     return render_template("day.html",
+        recipes_num=RECIPES_NUM,
+        all_recipes=all_recipes,
+        movies_num=MOVIES_NUM,
+        all_movies=all_movies,
         day_links=day_links,
         logged_in=is_logged_in,
         day_info=day_info,
@@ -81,11 +101,40 @@ def day(day_num):
     )
 
 @login_required
+@bp.route("/update_<item>", methods=["POST"])
+def update_movies(item):
+
+    if g.user is None:
+        return redirect("/auth/login")
+
+    user_id = g.user["id"]
+    day_num = request.form.get("day_num")
+    db = get_db()
+
+    if item == "movie":
+        movie = request.form.get("movie")
+        db.execute(
+            "UPDATE user_days SET movie_id=? WHERE user_id=? AND day_num=?",
+            (movie, user_id, day_num)
+        )
+        db.commit()
+    elif item == "recipe":
+        recipe = request.form.get("recipe")
+        db.execute(
+            "UPDATE user_days SET recipe_id=? WHERE user_id=? AND day_num=?",
+            (recipe, user_id, day_num)
+        )
+        db.commit()
+
+    return redirect("/day/" + day_num)
+
+
+@login_required
 @bp.route("/update_notes", methods=["POST"])
 def update_notes():
 
     if g.user is None:
-        return redirect("/auth/signup")
+        return redirect("/auth/login")
 
     user_id = g.user["id"]
     day_num = request.form.get("day_num")
@@ -93,8 +142,8 @@ def update_notes():
     db = get_db()
 
     db.execute(
-        "UPDATE user SET notes=? WHERE id=?", (notes,user_id)
+        "UPDATE user SET notes=? WHERE id=?", (notes, user_id)
     )
     db.commit()
 
-    return redirect("/day/"+day_num)
+    return redirect("/day/" + day_num)
