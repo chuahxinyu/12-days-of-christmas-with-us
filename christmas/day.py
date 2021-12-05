@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, request, g
+from werkzeug.utils import redirect
+from christmas.auth import login_required
 
 from christmas.db import get_db
 
@@ -77,3 +79,23 @@ def day(day_num):
         song_info=song_info,
         notes = user_info["notes"]
     )
+
+@login_required
+@bp.route("/update_notes/", methods=["POST"])
+def update_notes():
+
+    if g.user is None:
+        return redirect("/auth/signup")
+
+    user_id = g.user["id"]
+    day_num = request.form.get("day_num")
+    notes = request.form.get("notes")
+    print(notes)
+    db = get_db()
+
+    db.execute(
+        "UPDATE user SET notes=? WHERE id=?", (notes,user_id)
+    )
+    db.commit()
+
+    return redirect("/day/"+day_num)

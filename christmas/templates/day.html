@@ -142,8 +142,9 @@
             <div class="card notes">
                 <div class="">
                     <h2>Notes</h2>
-                    <form class="notes-container">
-                        <textarea placeholder="Enter your notes here...">{{ notes }}</textarea>
+                    <form class="notes-container" action="/update_notes " method="post">
+                        <textarea name="notes" placeholder="Enter your notes here...">{{ notes }}</textarea>
+                        <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
                         <button class="save-btn" type="submit">Save</button>
                     </form>
                 </div>
