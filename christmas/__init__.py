@@ -11,6 +11,18 @@ def create_app(test_config=None):
         DATABASE=os.path.join(app.instance_path, 'christmas.sqlite'),
     )
 
+    from . import db
+    db.init_app(app)
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import internal
+    app.register_blueprint(internal.bp)
+    
+    from . import day
+    app.register_blueprint(day.bp)
+
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
@@ -50,17 +62,5 @@ def create_app(test_config=None):
             days=days, 
             day_links=day_links
         )
-    
-    from . import db
-    db.init_app(app)
-
-    from . import auth
-    app.register_blueprint(auth.bp)
-
-    from . import internal
-    app.register_blueprint(internal.bp)
-    
-    from . import day
-    app.register_blueprint(day.bp)
 
     return app
