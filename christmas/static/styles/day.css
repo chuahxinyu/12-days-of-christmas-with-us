@@ -93,10 +93,11 @@ nav ul li a {
 }
 
 .link {
-  color: #919191;
+  color: #6d6d6d;
 }
 .link:hover {
   cursor: pointer;
+  color: #444444;
 }
 
 .sign_up:hover,
@@ -298,14 +299,16 @@ textarea {
   font: inherit;
   display: block;
   margin: 0.5rem 0;
+  border-radius: 4px;
 }
 
 .save-btn {
   border: none;
-  background-color: #c4c4c4;
+  background-color: #d0d0d0;
 }
 
 .save-btn:hover {
+  background-color: #aeaeae;
   cursor: pointer;
 }
 
@@ -324,6 +327,6 @@ select {
   position: relative;
   display: flex;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   justify-content: flex-end;
 }
