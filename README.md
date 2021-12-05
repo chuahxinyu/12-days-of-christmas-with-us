@@ -3,7 +3,7 @@
 
 ## **LINKS**
 
-[![](thumbnail.gif)](video.url)
+[![](thumbnail.gif)](https://www.youtube.com/watch?v=fqxJXhvJ6S4)
 * [Alternative Demo Link (Heroku)](https://twelve-day-of-christmas.herokuapp.com/)
 * [Devpost Project](https://devpost.com/software/12-days-of-christmas-with-us)
 
