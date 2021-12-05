@@ -89,7 +89,15 @@
                 </div>
 
                 <div class="card-content-container">
-                    <h2>{{ movie_info["title"] }}</h2>
+                    <select name="movies" id="">
+                        {% for i in range(0, movies_num) %}
+                            {% if all_movies[i][0] == movie_info["title"] %}
+                                <option value="{{ all_movies[i][0] }}" selected>{{ all_movies[i][0] }}</option>
+                            {% else %}
+                                <option value="{{ all_movies[i][0] }}">{{ all_movies[i][0] }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
                     <p>
                         {{ movie_info["description"] }}
                     </p>

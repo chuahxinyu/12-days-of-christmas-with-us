@@ -6,6 +6,8 @@ from christmas.db import get_db
 
 bp = Blueprint("day", __name__)
 
+MOVIES_NUM = 13
+
 @bp.route("/day/<day_num>", methods=["GET", "POST"])
 def day(day_num):
     FALLBACK_INFO = {
@@ -70,7 +72,13 @@ def day(day_num):
 
     day_links = ["/day/"+str(day_num) for day_num in range(1, 13)]
 
+    all_movies = db.execute(
+        "SELECT title FROM movies"
+    ).fetchall()
+
     return render_template("day.html",
+        movies_num=MOVIES_NUM,
+        all_movies=all_movies,
         day_links=day_links,
         logged_in=is_logged_in,
         day_info=day_info,
