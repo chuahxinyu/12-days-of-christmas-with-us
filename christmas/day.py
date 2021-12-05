@@ -7,7 +7,6 @@ from christmas.db import get_db
 bp = Blueprint("day", __name__)
 
 MOVIES_NUM = 13
-
 @bp.route("/day/<day_num>", methods=["GET", "POST"])
 def day(day_num):
     FALLBACK_INFO = {
