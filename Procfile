@@ -1,1 +1,1 @@
-web: gunicorn christmas.__init__:__init__
+web: gunicorn wsgi:app
