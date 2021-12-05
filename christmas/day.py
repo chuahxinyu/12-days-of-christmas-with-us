@@ -77,11 +77,11 @@ def day(day_num):
         movie_info=movie_info,
         recipe_info=recipe_info,
         song_info=song_info,
-        notes = user_info["notes"]
+        notes=user_info["notes"]
     )
 
 @login_required
-@bp.route("/update_notes/", methods=["POST"])
+@bp.route("/update_notes", methods=["POST"])
 def update_notes():
 
     if g.user is None:
