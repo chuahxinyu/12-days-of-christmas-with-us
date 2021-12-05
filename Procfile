@@ -1,1 +1,1 @@
-web: python /christmas/__init__.py
+web: python christmas/__init__.py
