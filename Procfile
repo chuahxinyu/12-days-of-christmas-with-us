@@ -1,1 +1,1 @@
-web: gunicorn christmas.app:app
+web: gunicorn christmas
