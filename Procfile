@@ -1,1 +1,1 @@
-web: gunicorn christmas/__init__.py
+web: gunicorn christmas.app:app
