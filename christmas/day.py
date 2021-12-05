@@ -89,22 +89,30 @@ def day(day_num):
     )
 
 @login_required
-@bp.route("/update_movies", methods=["POST"])
-def update_movies():
+@bp.route("/update_<item>", methods=["POST"])
+def update_movies(item):
 
     if g.user is None:
         return redirect("/auth/signup")
 
     user_id = g.user["id"]
     day_num = request.form.get("day_num")
-    movie = request.form.get("movies")
     db = get_db()
 
-    db.execute(
-        "UPDATE user_days SET movie_id=? WHERE id=? AND day_num=?",
-        (movie, user_id, day_num)
-    )
-    db.commit()
+    if item == "movies":
+        movie = request.form.get("movies")
+        db.execute(
+            "UPDATE user_days SET movie_id=? WHERE id=? AND day_num=?",
+            (movie, user_id, day_num)
+        )
+        db.commit()
+    elif item == "recipes":
+        recipe = request.form.get("recipe")
+        db.execute(
+            "UPDATE user_days SET recipe_id=? WHERE id=? AND day_num=?",
+            (recipe, user_id, day_num)
+        )
+        db.commit()
 
     return redirect("/day/" + day_num)
 
