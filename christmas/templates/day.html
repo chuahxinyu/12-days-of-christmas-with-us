@@ -19,7 +19,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
 
-        <title>12-Days-of-Christmas-with-us</title>
+        <title>Day {{ day_info["day_num"] }}</title>
     </head>
 
     {% if day_info["day_num"] % 3 == 1 %}
@@ -72,14 +72,12 @@
                 </div>
                 <a class="fa fa-angle-right fa-2x btn prev-next" href="{{ 1 if day_info["day_num"] == 12 else day_links[day_info["day_num"]] }}"></a>
             </div>
-            
 
             <div
                 class="card movie"
-                <!-- href={{ movie_info["external_link"] }}
-                target="_blank" -->
+                href={{ movie_info["external_link"] }}
+                target="_blank"
             >
-                <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
                         src={{ movie_info["img"] }}
@@ -100,19 +98,18 @@
                                 {% endif %}
                             {% endfor %}
                         </select>
-                        <p>
-                            {{ movie_info["description"] }}
-                        </p>
                         <button class="save-btn" type="submit">Save Changes</button>
                     </form>
-                    <a class="log_in {{ gradient_colour }}" href={{ movie_info["external_link"] }}>EXPLORE</a>
+                    <p>
+                        {{ movie_info["description"] }}
+                    </p>
+                    <a class="link" href={{ movie_info["external_link"] }} target="_blank"> <i class="fa fa-external-link"></i> EXPLORE </a>
                 </div>
             </div>
 
             <div
                 class="card recipe"
             >
-                <!-- TODO Daniel -->
                 <div class="card-img-container">
                     <img
                         src={{ recipe_info["img"] }}
@@ -122,10 +119,8 @@
                 </div>
 
                 <div class="card-content-container">
-                    <!-- <h2>{{ recipe_info["name"] }}</h2> -->
                     <!-- Dropdown menu for recipe -->
                     <div class="card-content-container">
-                        <!-- Action doesnt do anything yet -->
                         <form class="notes-container" action="/update_recipe" method="post">
                             <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
                             <select name="recipe" id="">
@@ -137,14 +132,16 @@
                                     {% endif %}
                                 {% endfor %}
                             </select>
-                            
                             <button class="save-btn" type="submit">Save Changes</button>
                         </form>
-                        <a class="log_in {{ gradient_colour }}" href={{ recipe_info["external_link"] }}>EXPLORE</a>
                     </div>
                     <p>
                         {{ recipe_info["description"] }}
                     </p>
+                    <a class="link" href={{ recipe_info["external_link"] }} target="_blank">
+                        <i class="fa fa-external-link"></i>
+                        EXPLORE
+                    </a>
                 </div>
             </div>
 
