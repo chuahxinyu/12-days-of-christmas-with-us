@@ -24,10 +24,10 @@
 * ``` Heroku ```
 * ``` Git ```
 ## **How To Run It**
-* Install Flask : [LINK](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
-```
-FLASK_APP=christmas
-```
+1. Install Flask : [LINK](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
+2. Configure Flask environment variable: ``` FLASK_APP=christmas ```
+3. Run flask: ``` flask run ```
+
 ## **What's Next?**
 * Add more ways to sign up/log in (Google, GitHub, etc.)
 * Send confirmation emails for signing up
