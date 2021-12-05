@@ -8,3 +8,6 @@ form {
   margin: 250px auto;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
