@@ -1,1 +1,1 @@
-web: gunicorn christmas
+web: gunicorn christmas:christmas
