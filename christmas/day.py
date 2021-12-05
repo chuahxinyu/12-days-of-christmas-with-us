@@ -83,7 +83,7 @@ def day(day_num):
     ).fetchall()
 
     all_recipes = db.execute(
-        "SELECT name FROM recipes"
+        "SELECT id, name FROM recipes"
     ).fetchall()
 
     return render_template("day.html",
@@ -105,7 +105,7 @@ def day(day_num):
 def update_movies(item):
 
     if g.user is None:
-        return redirect("/auth/signup")
+        return redirect("/auth/login")
 
     user_id = g.user["id"]
     day_num = request.form.get("day_num")
@@ -121,7 +121,7 @@ def update_movies(item):
     elif item == "recipe":
         recipe = request.form.get("recipe")
         db.execute(
-            "UPDATE user_days SET recipe_id=? WHERE id=? AND day_num=?",
+            "UPDATE user_days SET recipe_id=? WHERE user_id=? AND day_num=?",
             (recipe, user_id, day_num)
         )
         db.commit()
@@ -134,7 +134,7 @@ def update_movies(item):
 def update_notes():
 
     if g.user is None:
-        return redirect("/auth/signup")
+        return redirect("/auth/login")
 
     user_id = g.user["id"]
     day_num = request.form.get("day_num")

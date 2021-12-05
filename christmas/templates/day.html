@@ -89,7 +89,6 @@
                 </div>
 
                 <div class="card-content-container">
-                    <!-- Action doesnt do anything yet -->
                     <form class="notes-container" action="/update_movie" method="post">
                         <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
                         <select name="movie" id="">
@@ -127,13 +126,14 @@
                     <!-- Dropdown menu for recipe -->
                     <div class="card-content-container">
                         <!-- Action doesnt do anything yet -->
-                        <form class="notes-container" action="# " method="post">
-                            <select name="recipes" id="">
+                        <form class="notes-container" action="/update_recipe" method="post">
+                            <input type="hidden" name="day_num" value={{ day_info["day_num"] }}>
+                            <select name="recipe" id="">
                                 {% for i in range(0, recipes_num) %}
-                                    {% if all_recipes[i][0] == recipe_info["name"] %}
-                                        <option value="{{ all_recipes[i][0] }}" selected>{{ all_recipes[i][0] }}</option>
+                                    {% if all_recipes[i][1] == recipe_info["name"] %}
+                                        <option value="{{ all_recipes[i][0] }}" selected>{{ all_recipes[i][1] }}</option>
                                     {% else %}
-                                        <option value="{{ all_recipes[i][0] }}">{{ all_recipes[i][0] }}</option>
+                                        <option value="{{ all_recipes[i][0] }}">{{ all_recipes[i][1] }}</option>
                                     {% endif %}
                                 {% endfor %}
                             </select>
