@@ -81,33 +81,71 @@ nav {
 }
 .grid-item {
   height: 7rem;
-  width: height;
+  width: auto;
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.8);
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 20px;
   font-size: 1rem;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1000px;
+  background-color: transparent;
 }
 
-.grid-item.yellow {
+.yellow {
   background-color: #e3c45a;
 }
-.grid-item.red {
+.red {
   background-color: #cf475a;
 }
-.grid-item.green {
+.green {
   background-color: #3b8161;
 }
 
-
 .day-img {
-  height: 4rem;
+  height: 5rem;
   width: auto;
   object-fit: cover;
   object-position: center;
-  border-radius: 0.5rem;
+}
+
+.grid-item-back {
+  transform: rotateY(180deg);
+}
+
+.grid-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item:hover .grid-item-inner {
+  transform: rotateY(180deg);
+}
+
+.grid-item-front, .grid-item-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-item-front {
+  color: #f5f2e9;
+}
+
+.grid-item-back {
+  transform: rotateY(180deg);
 }
