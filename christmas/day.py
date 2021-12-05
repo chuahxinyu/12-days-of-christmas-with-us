@@ -89,6 +89,27 @@ def day(day_num):
     )
 
 @login_required
+@bp.route("/update_movies", methods=["POST"])
+def update_movies():
+
+    if g.user is None:
+        return redirect("/auth/signup")
+
+    user_id = g.user["id"]
+    day_num = request.form.get("day_num")
+    movie = request.form.get("movies")
+    db = get_db()
+
+    db.execute(
+        "UPDATE user_days SET movie_id=? WHERE id=? AND day_num=?",
+        (movie, user_id, day_num)
+    )
+    db.commit()
+
+    return redirect("/day/" + day_num)
+
+
+@login_required
 @bp.route("/update_notes", methods=["POST"])
 def update_notes():
 
@@ -98,7 +119,6 @@ def update_notes():
     user_id = g.user["id"]
     day_num = request.form.get("day_num")
     notes = request.form.get("notes")
-    print(notes)
     db = get_db()
 
     db.execute(
@@ -106,4 +126,4 @@ def update_notes():
     )
     db.commit()
 
-    return redirect("/day/"+day_num)
+    return redirect("/day/" + day_num)
