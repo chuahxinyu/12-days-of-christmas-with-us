@@ -22,25 +22,37 @@
         <title>12-Days-of-Christmas-with-us</title>
     </head>
 
-    <body>
+    {% if day_info["day_num"] % 3 == 1 %}
+        {% set gradient_colour = "red-gradient" %}
+    {% endif %}
+    {% if day_info["day_num"] % 3 == 2 %}
+        {% set gradient_colour = "green-gradient" %}
+    {% endif %}
+    {% if day_info["day_num"] % 3 == 0 %}
+        {% set gradient_colour = "blue-gradient" %}
+    {% endif %}
+
+    <body class="{{ gradient_colour }}">
         <section class="header">
             <nav>
                 <a href="/">
-                    <i class="fa fa-home fa-2x header-home"></i>
+                    <i class="fa fa-home fa-2x btn"></i>
                 </a>
 
                 <ul>
                     {% if not logged_in %}
                     <li><a class="sign_up" href="/auth/signup">SIGN UP</a></li>
-                    <li><a class="log_in" href="/auth/login">LOG IN</a></li>
+                    <li><a class="log_in {{ gradient_colour }}" href="/auth/login">LOG IN</a></li>
                     {% else %}
-                    <li><a class="log_in" href="/auth/logout">LOG OUT</a></li>
+                    <li><a class="log_in {{ gradient_colour }}" href="/auth/logout">LOG OUT</a></li>
                     {% endif %}
                 </ul>
             </nav>
         </section>
+
         <div class="grid-container">
             <div class="day-header">
+                <a class="fa fa-angle-left fa-2x btn prev-next" href="{{ day_links[day_info["day_num"]-2] }}"></a>
                 <div class="day-header-img-container">
                     <img
                         src={{ day_info["img"] }}
@@ -58,6 +70,7 @@
                         class="day-header-img"
                     />
                 </div>
+                <a class="fa fa-angle-right fa-2x btn prev-next" href="{{ 0 if day_info["day_num"] == 12 else day_links[day_info["day_num"]] }}"></a>
             </div>
             
 
@@ -137,4 +150,7 @@
             </div>
         </div>
     </body>
+    <footer>
+
+    </footer>
 </html>
