@@ -90,7 +90,6 @@ def update_notes():
     user_id = g.user["id"]
     day_num = request.form.get("day_num")
     notes = request.form.get("notes")
-    print(notes)
     db = get_db()
 
     db.execute(

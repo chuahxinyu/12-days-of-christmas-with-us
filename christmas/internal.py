@@ -23,7 +23,6 @@ def add_movie():
             error = "Something is missing"
 
         if error is None:
-            print(movie)
             try:
                 db.execute(
                     "INSERT INTO movies (title, description, img, external_link) VALUES (?, ?, ?, ?)",
@@ -39,8 +38,6 @@ def add_movie():
         flash(error)
 
     movies = db.execute("SELECT * FROM movies").fetchall()
-    for movie in movies:
-        print(movie[0])
 
     return render_template("movie_update.html", movies=movies)
 
@@ -61,7 +58,6 @@ def add_song():
             error = "Something is missing"
 
         if error is None:
-            print(song)
             try:
                 db.execute(
                     "INSERT INTO songs (title, artist, img, link) VALUES (?, ?, ?, ?)",
@@ -76,8 +72,6 @@ def add_song():
         flash(error)
 
     songs = db.execute("SELECT * FROM songs").fetchall()
-    for song in songs:
-        print(song[0])
 
     return render_template("songs_update.html", songs=songs)
 
@@ -98,7 +92,6 @@ def add_recipe():
             error = "Something is missing"
 
         if error is None:
-            print(recipe)
             try:
                 db.execute(
                     "INSERT INTO recipes (name, description, img, external_link) VALUES (?, ?, ?, ?)",
@@ -114,7 +107,5 @@ def add_recipe():
         flash(error)
 
     recipes = db.execute("SELECT * FROM recipes").fetchall()
-    for recipe in recipes:
-        print(recipe[0])
 
     return render_template("recipe_update.html", recipes=recipes)

@@ -54,7 +54,6 @@ def signup():
                 userid = db.execute(
                     "SELECT id FROM user ORDER BY id DESC LIMIT 1"
                 ).fetchone()
-                print(userid[0])
                 for day_num in range(1, TOTAL_DAYS+1):
                     db.execute(
                         "INSERT INTO user_days VALUES (?, ?, ?, ?, ?, ?)",
@@ -97,7 +96,6 @@ def login():
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
-    print(user_id)
 
     if user_id is None:
         g.user = None
